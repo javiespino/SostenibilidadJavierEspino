@@ -1,0 +1,37 @@
+<resources>
+    <!--Strings generales-->
+    <string name="app_name">SostenibilidadJavierEspino</string>
+    <string name="textAH">IES Arroyo Harnina</string>
+    <string name="textSF">IES Suarez Figueroa</string>
+    <string name="invernadero">Invernadero</string>
+    <string name="estacion">Estación</string>
+    <string name="info_centro">Información del Centro</string>
+
+    <!--Strings invernaderos-->
+    <string name="invernadero_arroyo_harnina">Invernadero Arroyo Harnina</string>
+    <string name="invernadero_suarez_figueroa">Invernadero Suarez Figueroa</string>
+    <string name="cargando_presion">Cargando presión...</string>
+    <string name="cargando_temperatura">Cargando temperatura...</string>
+    <string name="cargando_humedad">Cargando humedad...</string>
+    <string name="cargando_luminosidad">Cargando luminosidad...</string>
+    <string name="cargando_temperatura_tierra">Cargando temperatura tierra...</string>
+    <string name="cargando_humedad_tierra">Cargando humedad tierra...</string>
+    <string name="bienvenido">¡Bienvenido!</string>
+    <string name="elige">Elige un instituto para ver sus datos:</string>
+
+    <!--Strings bottom menu-->
+    <string name="volver">Volver</string>
+    <string name="info">Info</string>
+
+    <!--Strings info SF-->
+    <string name="direccion_sf">Convento del Rosario, Av. Fuente del Maestre, 78, 06300 Zafra, Badajoz</string>
+    <string name="telefono_sf">Teléfono: 924 02 99 24</string>
+    <string name="web_sf">Web: www.suarezdefigueroa.es</string>
+    <string name="desc_logo_ah">Logotipo del IES Arroyo Harnina</string>
+
+    <!--Strings info AH-->
+    <string name="direccion_ah">C. Coria, 06200 Almendralejo, Badajoz</string>
+    <string name="telefono_ah">Teléfono: 924 01 77 78</string>
+    <string name="web_ah">Web: www.iesarroyoharnina.educarex.es</string>
+    <string name="desc_logo_sf">Logotipo del IES Suarez Figueroa</string>
+</resources>
