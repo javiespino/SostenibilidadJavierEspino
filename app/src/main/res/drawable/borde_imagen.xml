@@ -1,0 +1,14 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Fondo transparente para que solo se vea el borde -->
+    <solid android:color="@android:color/transparent" />
+
+    <!-- El borde -->
+    <stroke
+        android:width="3dp"
+        android:color="@color/agrosensex_oscuro" />
+
+    <!-- Opcional: esquinas redondeadas -->
+    <corners android:radius="12dp" />
+</shape>
