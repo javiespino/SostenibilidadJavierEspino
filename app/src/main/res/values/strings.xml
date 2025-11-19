@@ -1,11 +1,12 @@
 <resources>
     <!--Strings generales-->
-    <string name="app_name">SostenibilidadJavierEspino</string>
+    <string name="app_name">Agrosensex</string>
     <string name="textAH">IES Arroyo Harnina</string>
     <string name="textSF">IES Suarez Figueroa</string>
     <string name="invernadero">INVERNADERO</string>
     <string name="estacion">ESTACIÓN</string>
     <string name="info_centro">Información del Centro</string>
+    <string name="hecho">© Hecho por Javier Espino - 2ª DAM</string>
 
     <!--Strings invernaderos-->
     <string name="invernadero_arroyo_harnina">Invernadero Arroyo Harnina</string>

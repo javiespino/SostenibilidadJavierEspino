@@ -16,11 +16,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/invernadero_arroyo_harnina"
-            android:textColor="@color/agrosensex_oscuro"
+            android:layout_marginTop="10dp"
+            android:text="@string/invernadero"
+            android:textColor="@color/agrosensex_claro"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:background="@drawable/borde_imagen"
+            />
+        <TextView
+            android:id="@+id/textSubitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/textAH"
+            android:textColor="@color/agrosensex_claro"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="8dp" />
 
         <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
@@ -31,17 +44,18 @@
             android:padding="8dp"
             android:clipToPadding="false" />
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/menu_atras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/agrosensex"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_atras"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menu_atras"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/agrosensex"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu_atras"
-        android:layout_gravity="bottom"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
