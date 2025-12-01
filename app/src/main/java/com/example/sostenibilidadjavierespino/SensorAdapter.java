@@ -34,11 +34,14 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorView
         holder.icon.setImageResource(item.iconRes);
         holder.text.setText(item.label + ": cargando...");
 
-        // Llama al método getSensor de la Activity correspondiente
         if (activity instanceof InvernaderoArroyo) {
             ((InvernaderoArroyo) activity).getSensor(item.entityId, holder.text, item.label);
         } else if (activity instanceof InvernaderoSuarez) {
             ((InvernaderoSuarez) activity).getSensor(item.entityId, holder.text, item.label);
+        } else if (activity instanceof EstacionSuarez) {
+            ((EstacionSuarez) activity).getSensor(item.entityId, holder.text, item.label);
+        } else if (activity instanceof EstacionArroyo) {
+            ((EstacionArroyo) activity).getSensor(item.entityId, holder.text, item.label);
         }
     }
 
