@@ -8,12 +8,16 @@
     <string name="info_centro">Información del Centro</string>
     <string name="hecho">© Hecho por Javier Espino Trejo</string>
     <string name="cerrar_app">Cerrar aplicación</string>
+    <string name="ver_fotos">Ver fotos</string>
     <string name="logo_inicio">Logo de inicio</string>
     <string name="bienvenido">¡Bienvenido!</string>
     <string name="elige">Elige un instituto para ver sus datos:</string>
     <string name="sensor">Imagen del sensor</string>
-    <string name="error">Error; no se ha podido conectar</string>
+    <string name="error">Error: conexion no disponible</string>
     <string name="no_disponible">No disponible</string>
+    <string name="fotos">FOTOS</string>
+    <string name="galeria">Galeria</string>
+
 
     <!--Strings sensores invernadero-->
     <string name="sensor_presion_atmosferica">Presión Atmosférica</string>
@@ -78,5 +82,6 @@
     <string name="aviso_mensaje">Vas a salir de la aplicación para abrir una página web. ¿Quieres continuar?</string>
     <string name="boton_si">Sí</string>
     <string name="boton_no">No</string>
+    <string name="contador">1/8</string>
 
 </resources>
