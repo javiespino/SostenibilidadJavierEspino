@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_margin="25dp"
             android:text="@string/invernadero"
-            android:textColor="@color/agrosensex_claro"
+            android:textColor="@color/agrosensex_oscuro"
             android:textSize="28sp"
             android:textStyle="bold"
             android:padding="16dp"
@@ -32,8 +32,7 @@
             android:text="@string/textAH"
             android:textColor="@color/agrosensex_claro"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="8dp" />
+            android:textStyle="bold" />
 
         <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView

@@ -3,6 +3,7 @@ package com.example.sostenibilidadjavierespino;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -20,8 +21,8 @@ public class ArroyoHarnina extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arroyo_harnina);
 
-        ImageButton buttonInvernadero = findViewById(R.id.imageButton4);
-        ImageButton buttonEstacion = findViewById(R.id.imageButton5);
+        ImageButton buttonInvernadero = findViewById(R.id.imageButtonInvernadero);
+        ImageButton buttonEstacion = findViewById(R.id.imageButtonEstacion);
 
         buttonInvernadero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,15 +47,29 @@ public class ArroyoHarnina extends AppCompatActivity {
                 if (item.getItemId() == R.id.item_volver) {
                     finish();
                     return true;
-                }
 
-                else if (item.getItemId() == R.id.item_info) {
+                } else if (item.getItemId() == R.id.item_info) {
                     mostrarDialogoCentroInfo();
                     return true;
+
+                } else if (item.getItemId() == R.id.item_web) {
+                    new AlertDialog.Builder(ArroyoHarnina.this)
+                            .setTitle("Aviso")
+                            .setMessage("Vas a salir de la aplicación para abrir una página web. ¿Quieres continuar?")
+                            .setPositiveButton("Sí", (dialog, which) -> {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://iesarroyoharnina.educarex.es/"));
+                                startActivity(intent);
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
+
+                    return true;
                 }
+
                 return false;
             }
         });
+
     }
 
     private void mostrarDialogoCentroInfo() {

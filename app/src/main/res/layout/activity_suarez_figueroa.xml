@@ -2,94 +2,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/agrosensex_claro"
     tools:context=".SuarezFigueroa">
 
+    <!-- Título Superior -->
     <TextView
         android:id="@+id/textSF"
-        android:layout_width="match_parent"
-        android:layout_height="73dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
         android:background="@color/agrosensex"
-        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/textSF"
-        android:layout_marginTop="12dp"
-        android:textAlignment="center"
         android:textColor="@color/agrosensex_claro"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Imagen INVERNADERO -->
     <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="201dp"
-        android:layout_height="221dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/imageButtonInvernadero"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:background="@drawable/borde_imagen"
-        android:contentDescription="@string/estacion"
         android:padding="12dp"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@mipmap/estacion_foreground" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/estacion"
-        android:textAlignment="center"
-        android:textColor="@color/agrosensex_oscuro"
-        android:textSize="34sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="201dp"
-        android:layout_height="216dp"
-        android:background="@drawable/borde_imagen"
         android:contentDescription="@string/invernadero"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@mipmap/invernadero_foreground"
+        app:layout_constraintTop_toBottomOf="@id/textSF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/invernadero_foreground" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="308dp"
+        android:id="@+id/textInvernadero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/invernadero"
-        android:textAlignment="center"
         android:textColor="@color/agrosensex_oscuro"
-        android:textSize="34sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textSize="32sp"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonInvernadero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Imagen ESTACIÓN -->
+    <ImageButton
+        android:id="@+id/imageButtonEstacion"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/borde_imagen"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/estacion"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@mipmap/estacion_foreground"
+        app:layout_constraintTop_toBottomOf="@id/textInvernadero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textEstacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/estacion"
+        android:textColor="@color/agrosensex_oscuro"
+        android:textSize="32sp"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonEstacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Menú inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu_info_atras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/agrosensex"
-        app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_info_atras" />
+        app:menu="@menu/menu_info_atras"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
