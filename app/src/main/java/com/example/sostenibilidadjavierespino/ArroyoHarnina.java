@@ -54,13 +54,13 @@ public class ArroyoHarnina extends AppCompatActivity {
 
                 } else if (item.getItemId() == R.id.item_web) {
                     new AlertDialog.Builder(ArroyoHarnina.this)
-                            .setTitle("Aviso")
-                            .setMessage("Vas a salir de la aplicación para abrir una página web. ¿Quieres continuar?")
-                            .setPositiveButton("Sí", (dialog, which) -> {
+                            .setTitle(getString(R.string.aviso_titulo))
+                            .setMessage(getString(R.string.aviso_mensaje))
+                            .setPositiveButton(getString(R.string.boton_si), (dialog, which) -> {
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://iesarroyoharnina.educarex.es/"));
                                 startActivity(intent);
                             })
-                            .setNegativeButton("No", null)
+                            .setNegativeButton(getString(R.string.boton_no), null)
                             .show();
 
                     return true;
@@ -68,8 +68,8 @@ public class ArroyoHarnina extends AppCompatActivity {
 
                 return false;
             }
-        });
 
+        });
     }
 
     private void mostrarDialogoCentroInfo() {

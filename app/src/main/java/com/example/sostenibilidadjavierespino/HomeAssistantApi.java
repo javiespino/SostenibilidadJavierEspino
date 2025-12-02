@@ -14,7 +14,6 @@ import okhttp3.ResponseBody;
 public class HomeAssistantApi {
     private static final OkHttpClient client = new OkHttpClient();
 
-    // TODO: cámbialos por los tuyos
     private static final String BASE_URL = "http://suarezdefigueroa.es:8086";
     private static final String TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkNjI1MzI1MGRkN2I0OTUwYjMwMzEwMWE4NjJiOTYwOCIsImlhdCI6MTc2MDg5MjExNiwiZXhwIjoyMDc2MjUyMTE2fQ.PCFqgLj880O5hA5ztGO6ON-pGXF1-H3rDWgG3qAtioY";
 

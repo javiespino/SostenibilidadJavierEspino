@@ -22,7 +22,6 @@ public class HomeAssistantApiEstacion {
         void onSuccess(JSONObject json);
         void onError(IOException e, int code);
     }
-
     public static void getSensorState(String entityId, SensorCallback cb) {
         String url = BASE_URL + "/api/states/" + entityId;
 

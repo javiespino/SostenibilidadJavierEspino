@@ -9,20 +9,52 @@
     <string name="hecho">© Hecho por Javier Espino Trejo</string>
     <string name="cerrar_app">Cerrar aplicación</string>
     <string name="logo_inicio">Logo de inicio</string>
-
-    <!--Strings invernaderos-->
-    <string name="invernadero_arroyo_harnina">Invernadero Arroyo Harnina</string>
-    <string name="invernadero_suarez_figueroa">Invernadero Suarez Figueroa</string>
-    <string name="cargando_presion">Cargando presión...</string>
-    <string name="cargando_temperatura">Cargando temperatura...</string>
-    <string name="cargando_humedad">Cargando humedad...</string>
-    <string name="cargando_luminosidad">Cargando luminosidad...</string>
-    <string name="cargando_temperatura_tierra">Cargando temperatura tierra...</string>
-    <string name="cargando_humedad_tierra">Cargando humedad tierra...</string>
     <string name="bienvenido">¡Bienvenido!</string>
     <string name="elige">Elige un instituto para ver sus datos:</string>
     <string name="sensor">Imagen del sensor</string>
-    <string name="error">Error, no se ha podido conectar</string>
+    <string name="error">Error; no se ha podido conectar</string>
+    <string name="no_disponible">No disponible</string>
+
+    <!--Strings sensores invernadero-->
+    <string name="sensor_presion_atmosferica">Presión Atmosférica</string>
+    <string name="sensor_temperatura">Temperatura</string>
+    <string name="sensor_humedad">Humedad</string>
+    <string name="sensor_luminosidad">Luminosidad</string>
+    <string name="sensor_temperatura_tierra">Temperatura Tierra</string>
+    <string name="sensor_humedad_tierra">Humedad Tierra</string>
+    <string name="sensor_temperatura_clase">Temperatura Clase</string>
+    <string name="sensor_humedad_clase">Humedad Clase</string>
+    <string name="cargando">Cargando...</string>
+
+    <!--String sensores estacion-->
+    <string name="sensor_radiacion_solar">Radiación Solar</string>
+    <string name="sensor_temperatura_actual">Temperatura Actual</string>
+    <string name="sensor_humedad_relativa">Humedad Relativa</string>
+    <string name="sensor_velocidad_viento">Velocidad del viento</string>
+    <string name="sensor_direccion_viento">Dirección del viento</string>
+    <string name="sensor_precipitacion_actual">Precipitación actual</string>
+    <string name="sensor_precipitacion_diaria">Precipitación diaria</string>
+    <string name="sensor_precipitacion_anual">Precipitación anual</string>
+
+    <!--Unidades-->
+    <string name="unidad_w_m2"> W/m²</string>
+    <string name="unidad_c"> °C</string>
+    <string name="unidad_porcentaje"> %</string>
+    <string name="unidad_hpa"> hPa</string>
+    <string name="unidad_m_s"> m/s</string>
+    <string name="unidad_mm_h"> mm/h</string>
+    <string name="unidad_mm"> mm</string>
+    <string name="unidad_grados"> º </string>
+
+    <!--Direcciones del viento-->
+    <string name="direccion_n">N</string>
+    <string name="direccion_ne">NE</string>
+    <string name="direccion_e">E</string>
+    <string name="direccion_se">SE</string>
+    <string name="direccion_s">S</string>
+    <string name="direccion_so">SO</string>
+    <string name="direccion_o">O</string>
+    <string name="direccion_no">NO</string>
 
     <!--Strings bottom menu-->
     <string name="volver">Volver</string>
@@ -40,4 +72,11 @@
     <string name="web_ah">Web: www.iesarroyoharnina.educarex.es</string>
     <string name="desc_logo_sf">Logotipo del IES Suarez Figueroa</string>
     <string name="web">Web</string>
+
+    <!--Alert-->
+    <string name="aviso_titulo">Aviso</string>
+    <string name="aviso_mensaje">Vas a salir de la aplicación para abrir una página web. ¿Quieres continuar?</string>
+    <string name="boton_si">Sí</string>
+    <string name="boton_no">No</string>
+
 </resources>

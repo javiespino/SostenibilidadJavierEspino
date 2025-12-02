@@ -46,16 +46,17 @@ public class InvernaderoSuarez extends AppCompatActivity {
 
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("", "Presión Atmosférica", "Cargando...", R.drawable.ic_presion),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_temperatura", "Temperatura", "Cargando...", R.drawable.ic_temperatura),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_humedad", "Humedad", "Cargando...", R.drawable.ic_humedadtierra),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_iluminacionexterno", "Luminosidad", "Cargando...", R.drawable.ic_luminosidad),
-                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", "Temperatura Tierra", "Cargando...", R.drawable.ic_temptierra),
-                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_humedad", "Humedad Tierra", "Cargando...", R.drawable.ic_humedadtierra),
-                new SensorItem("sensor.agsex_sdf_pasillo_lht52_temperatura", "Temperatura Clase", "Cargando...", R.drawable.ic_clasetemp),
-                new SensorItem("sensor.agsex_sdf_pasillo_lht52_humedad", "Humedad Clase", "Cargando...", R.drawable.ic_humedad)
+                new SensorItem("",getString(R.string.sensor_presion_atmosferica), getString(R.string.cargando), R.drawable.ic_presion),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_temperatura", getString(R.string.sensor_temperatura), getString(R.string.cargando), R.drawable.ic_temperatura),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_humedad", getString(R.string.sensor_humedad), getString(R.string.cargando), R.drawable.ic_humedadtierra),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_iluminacionexterno", getString(R.string.sensor_luminosidad), getString(R.string.cargando), R.drawable.ic_luminosidad),
+                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", getString(R.string.sensor_temperatura_tierra), getString(R.string.cargando), R.drawable.ic_temptierra),
+                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_humedad", getString(R.string.sensor_humedad_tierra), getString(R.string.cargando), R.drawable.ic_humedadtierra),
+                new SensorItem("sensor.agsex_sdf_pasillo_lht52_temperatura", getString(R.string.sensor_temperatura_clase), getString(R.string.cargando), R.drawable.ic_clasetemp),
+                new SensorItem("sensor.agsex_sdf_pasillo_lht52_humedad", getString(R.string.sensor_humedad_clase), getString(R.string.cargando), R.drawable.ic_humedad)
         );
     }
+
 
     public void getSensor(String entityId, TextView textViewTitulo, TextView textViewSensor, String titulo) {
         HomeAssistantApi.getSensorState(entityId, new HomeAssistantApi.SensorCallback() {
