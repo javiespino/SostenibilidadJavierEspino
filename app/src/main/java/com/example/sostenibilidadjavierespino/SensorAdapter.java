@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+
 public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorViewHolder> {
 
     private List<SensorItem> sensores;
@@ -32,16 +33,17 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorView
         SensorItem item = sensores.get(position);
 
         holder.icon.setImageResource(item.iconRes);
-        holder.text.setText(item.label + ": cargando...");
+        holder.textTitulo.setText(item.titulo);
+        holder.textSensor.setText(item.sensor);
 
         if (activity instanceof InvernaderoArroyo) {
-            ((InvernaderoArroyo) activity).getSensor(item.entityId, holder.text, item.label);
+            ((InvernaderoArroyo) activity).getSensor(item.entityId, holder.textTitulo, holder.textSensor, item.titulo);
         } else if (activity instanceof InvernaderoSuarez) {
-            ((InvernaderoSuarez) activity).getSensor(item.entityId, holder.text, item.label);
+            ((InvernaderoSuarez) activity).getSensor(item.entityId, holder.textTitulo, holder.textSensor, item.titulo);
         } else if (activity instanceof EstacionSuarez) {
-            ((EstacionSuarez) activity).getSensor(item.entityId, holder.text, item.label);
+            ((EstacionSuarez) activity).getSensor(item.entityId, holder.textTitulo, holder.textSensor, item.titulo);
         } else if (activity instanceof EstacionArroyo) {
-            ((EstacionArroyo) activity).getSensor(item.entityId, holder.text, item.label);
+            ((EstacionArroyo) activity).getSensor(item.entityId, holder.textTitulo, holder.textSensor, item.titulo);
         }
     }
 
@@ -52,12 +54,14 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorView
 
     static class SensorViewHolder extends RecyclerView.ViewHolder {
         ImageView icon;
-        TextView text;
+        TextView textTitulo;
+        TextView textSensor;
 
         public SensorViewHolder(@NonNull View itemView) {
             super(itemView);
             icon = itemView.findViewById(R.id.iconSensor);
-            text = itemView.findViewById(R.id.textSensor);
+            textTitulo = itemView.findViewById(R.id.textTitulo);
+            textSensor = itemView.findViewById(R.id.textSensor);
         }
     }
 }

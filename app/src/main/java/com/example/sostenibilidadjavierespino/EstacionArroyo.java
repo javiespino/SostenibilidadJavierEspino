@@ -1,6 +1,7 @@
 package com.example.sostenibilidadjavierespino;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,15 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class EstacionArroyo extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<SensorItem> sensores;
+    private OkHttpClient client = new OkHttpClient();
+
+    private final String URL = "https://api.weather.com/v2/pws/observations/current?stationId=IALMEN70&format=json&units=m&apiKey=908477f6f2b84c6c8477f6f2b80c6c03";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,45 +55,85 @@ public class EstacionArroyo extends AppCompatActivity {
         });
     }
 
-    // Cambiar estos sensores por los de la estacion del AH
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("", "Radiación Solar", R.drawable.ic_luminosidad),
-                new SensorItem("", "Temperatura Actual", R.drawable.ic_temperatura),
-                new SensorItem("", "Humedad Relativa (%)", R.drawable.ic_humedad),
-                new SensorItem("", "Presión Atmosférica (hPa)", R.drawable.ic_presion),
-                new SensorItem("", "Velocidad del viento", R.drawable.ic_viento),
-                new SensorItem("", "Dirección del viento", R.drawable.ic_brujula),
-                new SensorItem("", "Precipitación actual", R.drawable.ic_lluvia),
-                new SensorItem("", "Precipitación diaria", R.drawable.ic_lluvia),
-                new SensorItem("", "Precipitación anual", R.drawable.ic_lluvia)
+                new SensorItem("solarRadiation", "Radiación Solar", "Cargando...", R.drawable.ic_luminosidad),
+                new SensorItem("temp", "Temperatura", "Cargando...", R.drawable.ic_temperatura),
+                new SensorItem("humidity", "Humedad", "Cargando...", R.drawable.ic_humedad),
+                new SensorItem("pressure", "Presión", "Cargando...", R.drawable.ic_presion),
+                new SensorItem("windSpeed", "Velocidad del viento", "Cargando...", R.drawable.ic_viento),
+                new SensorItem("wind_dir", "Dirección del viento", "Cargando...", R.drawable.ic_brujula),
+                new SensorItem("precipRate", "Precipitación actual", "Cargando...", R.drawable.ic_lluvia),
+                new SensorItem("precipTotal", "Precipitación total", "Cargando...", R.drawable.ic_lluvia)
         );
     }
 
-    public void getSensor(String entityId, TextView textView, String label) {
-        HomeAssistantApiEstacion.getSensorState(entityId, new HomeAssistantApiEstacion.SensorCallback() {
-            @Override
-            public void onSuccess(JSONObject json) {
-                String state = json.optString("state", "?");
-                String unit;
-                JSONObject attrs = json.optJSONObject("attributes");
-                if (attrs != null)
-                    unit = attrs.optString("unit_of_measurement", "");
-                else {
-                    unit = "";
-                }
+    public void getSensor(String entityId, TextView textViewTitulo, TextView textViewSensor, String titulo) {
+        Request request = new Request.Builder()
+                .url(URL)
+                .build();
 
-                runOnUiThread(() ->
-                        textView.setText(label + ": " + state + " " + unit)
-                );
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> textViewSensor.setText("Error: " + e.getMessage()));
+                Log.e("API", "Error: " + e.getMessage());
             }
 
             @Override
-            public void onError(IOException e, int code) {
-                runOnUiThread(() ->
-                        textView.setText(label + " Error: " + e.getMessage())
-                );
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String json = response.body().string();
+                    JSONObject obj = new JSONObject(json);
+                    JSONArray obsArray = obj.getJSONArray("observations");
+                    JSONObject obs = obsArray.getJSONObject(0);
+                    JSONObject metric = obs.getJSONObject("metric");
+
+                    String valor = "?";
+
+                    switch (entityId) {
+                        case "solarRadiation":
+                            valor = obs.optDouble("solarRadiation", 0) + " W/m²";
+                            break;
+                        case "temp":
+                            valor = metric.optDouble("temp", 0) + " °C";
+                            break;
+                        case "humidity":
+                            valor = obs.optDouble("humidity", 0) + " %";
+                            break;
+                        case "pressure":
+                            valor = metric.optDouble("pressure", 0) + " hPa";
+                            break;
+                        case "windSpeed":
+                            valor = metric.optDouble("windSpeed", 0) + " m/s";
+                            break;
+                        case "wind_dir":
+                            double grados = obs.optDouble("winddir", 0);
+                            valor = grados + "° " + gradosADireccion(grados);
+                            break;
+                        case "precipRate":
+                            valor = metric.optDouble("precipRate", 0) + " mm/h";
+                            break;
+                        case "precipTotal":
+                            valor = metric.optDouble("precipTotal", 0) + " mm";
+                            break;
+                    }
+
+                    String finalValor = valor;
+                    runOnUiThread(() -> textViewSensor.setText(finalValor));
+                } catch (Exception e) {
+                    runOnUiThread(() -> textViewSensor.setText("Error: " + e.getMessage()));
+                    Log.e("API", "Parsing error: " + e.getMessage());
+                }
             }
         });
+
+        runOnUiThread(() -> textViewTitulo.setText(titulo));
+    }
+
+    private String gradosADireccion(double grados) {
+        String[] direcciones = {"N", "NE", "E", "SE", "S", "SO", "O", "NO"};
+        int index = (int) ((grados + 22.5) / 45) % 8;
+        return direcciones[index];
     }
 }

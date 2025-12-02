@@ -2,12 +2,14 @@ package com.example.sostenibilidadjavierespino;
 
 public class SensorItem {
     public String entityId;
-    public String label;
+    public String titulo;
+    public String sensor;
     public int iconRes;
 
-    public SensorItem(String entityId, String label, int iconRes) {
+    public SensorItem(String entityId, String titulo, String sensor, int iconRes) {
         this.entityId = entityId;
-        this.label = label;
+        this.titulo = titulo;
+        this.sensor = sensor;
         this.iconRes = iconRes;
     }
 }

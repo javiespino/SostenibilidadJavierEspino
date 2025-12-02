@@ -46,19 +46,19 @@ public class EstacionSuarez extends AppCompatActivity {
 
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_solar_radiation", "Radiación Solar", R.drawable.ic_luminosidad),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_feels_like_temperature", "Temperatura Actual", R.drawable.ic_temperatura),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_humidity", "Humedad Relativa (%)", R.drawable.ic_humedad),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_absolute_pressure", "Presión Atmosférica (hPa)", R.drawable.ic_presion),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_speed", "Velocidad del viento", R.drawable.ic_viento),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_direction", "Dirección del viento", R.drawable.ic_brujula),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_hourly_rain_rate", "Precipitación actual", R.drawable.ic_lluvia),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_daily_rain_rate", "Precipitación diaria", R.drawable.ic_lluvia),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_yearly_rain_rate", "Precipitación anual", R.drawable.ic_lluvia)
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_solar_radiation", "Radiación Solar", "Cargando...", R.drawable.ic_luminosidad),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_feels_like_temperature", "Temperatura Actual", "Cargando...", R.drawable.ic_temperatura),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_humidity", "Humedad Relativa", "Cargando...", R.drawable.ic_humedad),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_absolute_pressure", "Presión Atmosférica", "Cargando...", R.drawable.ic_presion),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_speed", "Velocidad del viento", "Cargando...", R.drawable.ic_viento),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_direction", "Dirección del viento", "Cargando...", R.drawable.ic_brujula),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_hourly_rain_rate", "Precipitación actual", "Cargando...", R.drawable.ic_lluvia),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_daily_rain_rate", "Precipitación diaria", "Cargando...", R.drawable.ic_lluvia),
+                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_yearly_rain_rate", "Precipitación anual", "Cargando...", R.drawable.ic_lluvia)
         );
     }
 
-    public void getSensor(String entityId, TextView textView, String label) {
+    public void getSensor(String entityId, TextView textViewTitulo, TextView textViewSensor, String titulo) {
         HomeAssistantApiEstacion.getSensorState(entityId, new HomeAssistantApiEstacion.SensorCallback() {
             @Override
             public void onSuccess(JSONObject json) {
@@ -71,16 +71,18 @@ public class EstacionSuarez extends AppCompatActivity {
                     unit = "";
                 }
 
-                runOnUiThread(() ->
-                        textView.setText(label + ": " + state + " " + unit)
-                );
+                runOnUiThread(() -> {
+                    textViewTitulo.setText(titulo);
+                    textViewSensor.setText(state + " " + unit);
+                });
             }
 
             @Override
             public void onError(IOException e, int code) {
-                runOnUiThread(() ->
-                        textView.setText(label + " Error: " + e.getMessage())
-                );
+                runOnUiThread(() -> {
+                    textViewTitulo.setText(titulo);
+                    textViewSensor.setText("Error: " + e.getMessage());
+                });
             }
         });
     }

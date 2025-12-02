@@ -13,6 +13,6 @@
     <item
         android:id="@+id/item_web"
         android:icon="@drawable/ic_web"
-        android:title="Web" />
+        android:title="@string/web" />
 </menu>
 

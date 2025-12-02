@@ -46,18 +46,18 @@ public class InvernaderoSuarez extends AppCompatActivity {
 
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("", "Presión atmosférica", R.drawable.ic_presion),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_temperatura", "Temperatura", R.drawable.ic_temperatura),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_humedad", "Humedad", R.drawable.ic_humedadtierra),
-                new SensorItem("sensor.agsex_sdf_huerto_lht65n_iluminacionexterno", "Luminosidad", R.drawable.ic_luminosidad),
-                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", "Temp Tierra", R.drawable.ic_temptierra),
-                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_humedad", "Humedad Tierra", R.drawable.ic_humedadtierra),
-                new SensorItem("sensor.agsex_sdf_pasillo_lht52_temperatura", "Temperatura Clase", R.drawable.ic_clasetemp),
-                new SensorItem("sensor.agsex_sdf_pasillo_lht52_humedad", "Humedad Clase", R.drawable.ic_humedad)
+                new SensorItem("", "Presión atmosférica", "Cargando...", R.drawable.ic_presion),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_temperatura", "Temperatura", "Cargando...", R.drawable.ic_temperatura),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_humedad", "Humedad", "Cargando...", R.drawable.ic_humedadtierra),
+                new SensorItem("sensor.agsex_sdf_huerto_lht65n_iluminacionexterno", "Luminosidad", "Cargando...", R.drawable.ic_luminosidad),
+                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", "Temp Tierra", "Cargando...", R.drawable.ic_temptierra),
+                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_humedad", "Humedad Tierra", "Cargando...", R.drawable.ic_humedadtierra),
+                new SensorItem("sensor.agsex_sdf_pasillo_lht52_temperatura", "Temperatura Clase", "Cargando...", R.drawable.ic_clasetemp),
+                new SensorItem("sensor.agsex_sdf_pasillo_lht52_humedad", "Humedad Clase", "Cargando...", R.drawable.ic_humedad)
         );
     }
 
-    public void getSensor(String entityId, TextView textView, String label) {
+    public void getSensor(String entityId, TextView textViewTitulo, TextView textViewSensor, String titulo) {
         HomeAssistantApi.getSensorState(entityId, new HomeAssistantApi.SensorCallback() {
             @Override
             public void onSuccess(JSONObject json) {
@@ -70,16 +70,18 @@ public class InvernaderoSuarez extends AppCompatActivity {
                     unit = "";
                 }
 
-                runOnUiThread(() ->
-                        textView.setText(label + ": " + state + " " + unit)
-                );
+                runOnUiThread(() -> {
+                    textViewTitulo.setText(titulo);
+                    textViewSensor.setText(state + " " + unit);
+                });
             }
 
             @Override
             public void onError(IOException e, int code) {
-                runOnUiThread(() ->
-                        textView.setText(label + " Error: " + e.getMessage())
-                );
+                runOnUiThread(() -> {
+                    textViewTitulo.setText(titulo);
+                    textViewSensor.setText("Error: " + e.getMessage());
+                });
             }
         });
     }
