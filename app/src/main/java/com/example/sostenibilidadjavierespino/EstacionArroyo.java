@@ -47,15 +47,15 @@ public class EstacionArroyo extends AppCompatActivity {
     // Cambiar estos sensores por los de la estacion del AH
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_solar_radiation", "Radiación Solar", R.drawable.ic_luminosidad),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_feels_like_temperature", "Temperatura Actual", R.drawable.ic_temperatura),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_humidity", "Humedad Relativa (%)", R.drawable.ic_humedad),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_absolute_pressure", "Presión Atmosférica (hPa)", R.drawable.ic_presion),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_speed", "Velocidad del viento", R.drawable.ic_viento),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_wind_direction", "Dirección del viento", R.drawable.ic_brujula),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_hourly_rain_rate", "Precipitación actual", R.drawable.ic_lluvia),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_daily_rain_rate", "Precipitación diaria", R.drawable.ic_lluvia),
-                new SensorItem("sensor.hp1000se_pro_pro_v1_9_0_yearly_rain_rate", "Precipitación anual", R.drawable.ic_lluvia)
+                new SensorItem("", "Radiación Solar", R.drawable.ic_luminosidad),
+                new SensorItem("", "Temperatura Actual", R.drawable.ic_temperatura),
+                new SensorItem("", "Humedad Relativa (%)", R.drawable.ic_humedad),
+                new SensorItem("", "Presión Atmosférica (hPa)", R.drawable.ic_presion),
+                new SensorItem("", "Velocidad del viento", R.drawable.ic_viento),
+                new SensorItem("", "Dirección del viento", R.drawable.ic_brujula),
+                new SensorItem("", "Precipitación actual", R.drawable.ic_lluvia),
+                new SensorItem("", "Precipitación diaria", R.drawable.ic_lluvia),
+                new SensorItem("", "Precipitación anual", R.drawable.ic_lluvia)
         );
     }
 
