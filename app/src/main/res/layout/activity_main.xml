@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.93" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menu_navegacion"
@@ -70,7 +70,7 @@
         android:id="@+id/textView9"
         android:layout_width="299dp"
         android:layout_height="23dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/hecho"
         android:textAlignment="center"
         android:textColor="@color/agrosensex_oscuro"
@@ -79,4 +79,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btnCerrar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/circulo_rojo"
+        android:src="@drawable/ic_close"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/cerrar_app"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

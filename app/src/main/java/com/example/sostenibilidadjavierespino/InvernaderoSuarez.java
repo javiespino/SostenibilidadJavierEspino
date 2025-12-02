@@ -46,11 +46,11 @@ public class InvernaderoSuarez extends AppCompatActivity {
 
     private void cargarSensores() {
         sensores = List.of(
-                new SensorItem("", "Presión atmosférica", "Cargando...", R.drawable.ic_presion),
+                new SensorItem("", "Presión Atmosférica", "Cargando...", R.drawable.ic_presion),
                 new SensorItem("sensor.agsex_sdf_huerto_lht65n_temperatura", "Temperatura", "Cargando...", R.drawable.ic_temperatura),
                 new SensorItem("sensor.agsex_sdf_huerto_lht65n_humedad", "Humedad", "Cargando...", R.drawable.ic_humedadtierra),
                 new SensorItem("sensor.agsex_sdf_huerto_lht65n_iluminacionexterno", "Luminosidad", "Cargando...", R.drawable.ic_luminosidad),
-                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", "Temp Tierra", "Cargando...", R.drawable.ic_temptierra),
+                new SensorItem("sensor.agsex_sdf_invernadero_lht65n_temperatura", "Temperatura Tierra", "Cargando...", R.drawable.ic_temptierra),
                 new SensorItem("sensor.agsex_sdf_invernadero_lht65n_humedad", "Humedad Tierra", "Cargando...", R.drawable.ic_humedadtierra),
                 new SensorItem("sensor.agsex_sdf_pasillo_lht52_temperatura", "Temperatura Clase", "Cargando...", R.drawable.ic_clasetemp),
                 new SensorItem("sensor.agsex_sdf_pasillo_lht52_humedad", "Humedad Clase", "Cargando...", R.drawable.ic_humedad)
@@ -80,7 +80,7 @@ public class InvernaderoSuarez extends AppCompatActivity {
             public void onError(IOException e, int code) {
                 runOnUiThread(() -> {
                     textViewTitulo.setText(titulo);
-                    textViewSensor.setText("Error: " + e.getMessage());
+                    textViewSensor.setText("Error, no se ha podido conectar");
                 });
             }
         });

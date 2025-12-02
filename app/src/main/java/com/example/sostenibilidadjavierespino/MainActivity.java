@@ -2,6 +2,7 @@ package com.example.sostenibilidadjavierespino;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageButton btnCerrar = findViewById(R.id.btnCerrar);
+        btnCerrar.setOnClickListener(v -> finish());
 
         BottomNavigationView bottomNav = findViewById(R.id.menu_navegacion);
         bottomNav.setOnItemSelectedListener(item -> {

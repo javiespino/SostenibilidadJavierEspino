@@ -7,6 +7,7 @@
     <string name="estacion">ESTACIÓN</string>
     <string name="info_centro">Información del Centro</string>
     <string name="hecho">© Hecho por Javier Espino Trejo</string>
+    <string name="cerrar_app">Cerrar aplicación</string>
 
     <!--Strings invernaderos-->
     <string name="invernadero_arroyo_harnina">Invernadero Arroyo Harnina</string>

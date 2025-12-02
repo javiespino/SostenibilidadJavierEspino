@@ -63,17 +63,27 @@ public class EstacionSuarez extends AppCompatActivity {
             @Override
             public void onSuccess(JSONObject json) {
                 String state = json.optString("state", "?");
-                String unit;
+                String unit = "";
+
                 JSONObject attrs = json.optJSONObject("attributes");
-                if (attrs != null)
+                if (attrs != null) {
                     unit = attrs.optString("unit_of_measurement", "");
-                else {
-                    unit = "";
                 }
+
+                if (entityId.contains("wind_direction")) {
+                    try {
+                        double grados = Double.parseDouble(state);
+                        state = gradosADireccion(grados);
+                        unit = "";
+                    } catch (Exception ignored) {}
+                }
+
+                final String finalState = state;
+                final String finalUnit = unit;
 
                 runOnUiThread(() -> {
                     textViewTitulo.setText(titulo);
-                    textViewSensor.setText(state + " " + unit);
+                    textViewSensor.setText(finalState + " " + finalUnit);
                 });
             }
 
@@ -81,9 +91,15 @@ public class EstacionSuarez extends AppCompatActivity {
             public void onError(IOException e, int code) {
                 runOnUiThread(() -> {
                     textViewTitulo.setText(titulo);
-                    textViewSensor.setText("Error: " + e.getMessage());
+                    textViewSensor.setText("Error, no se ha podido conectar");
                 });
             }
         });
+    }
+
+    private String gradosADireccion(double grados) {
+        String[] direcciones = {"N", "NE", "E", "SE", "S", "SO", "O", "NO"};
+        int index = (int) ((grados + 22.5) / 45) % 8;
+        return direcciones[index];
     }
 }

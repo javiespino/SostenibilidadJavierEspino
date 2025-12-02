@@ -58,13 +58,13 @@ public class EstacionArroyo extends AppCompatActivity {
     private void cargarSensores() {
         sensores = List.of(
                 new SensorItem("solarRadiation", "Radiación Solar", "Cargando...", R.drawable.ic_luminosidad),
-                new SensorItem("temp", "Temperatura", "Cargando...", R.drawable.ic_temperatura),
-                new SensorItem("humidity", "Humedad", "Cargando...", R.drawable.ic_humedad),
-                new SensorItem("pressure", "Presión", "Cargando...", R.drawable.ic_presion),
+                new SensorItem("temp", "Temperatura Actual", "Cargando...", R.drawable.ic_temperatura),
+                new SensorItem("humidity", "Humedad Relativa", "Cargando...", R.drawable.ic_humedad),
+                new SensorItem("pressure", "Presión Atmosférica", "Cargando...", R.drawable.ic_presion),
                 new SensorItem("windSpeed", "Velocidad del viento", "Cargando...", R.drawable.ic_viento),
                 new SensorItem("wind_dir", "Dirección del viento", "Cargando...", R.drawable.ic_brujula),
                 new SensorItem("precipRate", "Precipitación actual", "Cargando...", R.drawable.ic_lluvia),
-                new SensorItem("precipTotal", "Precipitación total", "Cargando...", R.drawable.ic_lluvia)
+                new SensorItem("precipTotal", "Precipitación diaria", "Cargando...", R.drawable.ic_lluvia)
         );
     }
 
@@ -76,7 +76,9 @@ public class EstacionArroyo extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                runOnUiThread(() -> textViewSensor.setText("Error: " + e.getMessage()));
+                runOnUiThread(() ->
+                        textViewSensor.setText("Error, no se ha podido conectar")
+                );
                 Log.e("API", "Error: " + e.getMessage());
             }
 
