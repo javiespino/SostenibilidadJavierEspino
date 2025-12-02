@@ -91,7 +91,7 @@ public class EstacionSuarez extends AppCompatActivity {
             public void onError(IOException e, int code) {
                 runOnUiThread(() -> {
                     textViewTitulo.setText(titulo);
-                    textViewSensor.setText("Error, no se ha podido conectar");
+                    textViewSensor.setText(getString(R.string.error));
                 });
             }
         });

@@ -76,9 +76,10 @@ public class EstacionArroyo extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                runOnUiThread(() ->
-                        textViewSensor.setText("Error, no se ha podido conectar")
-                );
+                runOnUiThread(() -> {
+                    textViewTitulo.setText(titulo);
+                    textViewSensor.setText(getString(R.string.error));
+                });
                 Log.e("API", "Error: " + e.getMessage());
             }
 

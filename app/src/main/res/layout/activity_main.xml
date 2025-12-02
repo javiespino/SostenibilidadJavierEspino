@@ -58,6 +58,7 @@
         android:layout_width="410dp"
         android:layout_height="416dp"
         android:textAlignment="center"
+        android:contentDescription="@string/logo_inicio"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

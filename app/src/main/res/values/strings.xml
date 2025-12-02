@@ -8,6 +8,7 @@
     <string name="info_centro">Información del Centro</string>
     <string name="hecho">© Hecho por Javier Espino Trejo</string>
     <string name="cerrar_app">Cerrar aplicación</string>
+    <string name="logo_inicio">Logo de inicio</string>
 
     <!--Strings invernaderos-->
     <string name="invernadero_arroyo_harnina">Invernadero Arroyo Harnina</string>
@@ -20,6 +21,8 @@
     <string name="cargando_humedad_tierra">Cargando humedad tierra...</string>
     <string name="bienvenido">¡Bienvenido!</string>
     <string name="elige">Elige un instituto para ver sus datos:</string>
+    <string name="sensor">Imagen del sensor</string>
+    <string name="error">Error, no se ha podido conectar</string>
 
     <!--Strings bottom menu-->
     <string name="volver">Volver</string>
