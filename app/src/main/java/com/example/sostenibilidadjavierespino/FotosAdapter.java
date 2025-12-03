@@ -8,13 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sostenibilidadjavierespino.R;
-
 import java.util.List;
 
 public class FotosAdapter extends RecyclerView.Adapter<FotosAdapter.FotoViewHolder> {
 
-    private List<Integer> imagenes;
+    private final List<Integer> imagenes;
 
     public FotosAdapter(List<Integer> imagenes) {
         this.imagenes = imagenes;

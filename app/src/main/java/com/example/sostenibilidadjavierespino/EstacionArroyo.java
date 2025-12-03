@@ -27,7 +27,7 @@ public class EstacionArroyo extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<SensorItem> sensores;
-    private OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient();
 
     private final String URL = "https://api.weather.com/v2/pws/observations/current?stationId=IALMEN70&format=json&units=m&apiKey=908477f6f2b84c6c8477f6f2b80c6c03";
 

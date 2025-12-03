@@ -6,6 +6,8 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,13 +41,21 @@ public class FotosActivity extends AppCompatActivity {
         crearIndicadores(imagenes.size());
         actualizarIndicador(0);
 
-        // Listener para cambio de página
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 actualizarIndicador(position);
             }
+        });
+
+        BottomNavigationView navAtras = findViewById(R.id.menu_atras);
+        navAtras.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.item_volver) {
+                finish();
+                return true;
+            }
+            return false;
         });
     }
 

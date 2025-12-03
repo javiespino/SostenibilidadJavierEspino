@@ -12,8 +12,8 @@ import java.util.List;
 
 public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorViewHolder> {
 
-    private List<SensorItem> sensores;
-    private AppCompatActivity activity;
+    private final List<SensorItem> sensores;
+    private final AppCompatActivity activity;
 
     public SensorAdapter(List<SensorItem> sensores, AppCompatActivity activity) {
         this.sensores = sensores;
