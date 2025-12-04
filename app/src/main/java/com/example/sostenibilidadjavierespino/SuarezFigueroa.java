@@ -57,7 +57,7 @@ public class SuarezFigueroa extends AppCompatActivity {
                             .setTitle(getString(R.string.aviso_titulo))
                             .setMessage(getString(R.string.aviso_mensaje))
                             .setPositiveButton(getString(R.string.boton_si), (dialog, which) -> {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://iesarroyoharnina.educarex.es/"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.suarezdefigueroa.es/"));
                                 startActivity(intent);
                             })
                             .setNegativeButton(getString(R.string.boton_no), null)
